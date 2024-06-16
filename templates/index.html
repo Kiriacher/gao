@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/styles/stylecardcontainer.css">
+    <script src="static/libs/gsap/gsap.min.js" defer></script>
+    <script src="static/libs/gsap/ScrollTrigger.min.js" defer></script>
+    <script src="static/libs/gsap/ScrollSmoother.min.js" defer></script>
+    <script src="static/js/app.js" defer></script>
+    
+    
+ </head>
+
+ <style>
+    .news-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 0 auto;
+    justify-content: center; /*  Добавляем  */
+    margin-top: 10vh;
+}
+
+.card {
+    width: 75%; /* Делим ширину карточки пополам  */
+    margin: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center; /*  Выравниваем по вертикали  */
+    flex-direction: row; /*  Изменяем flex-direction на row  */
+    margin-top: 5vh;
+}
+
+
+.card img {
+    height: 50vh;
+    border-radius: 20px;
+    flex: 1; /*  Делаем  img  гибким  */
+}
+
+.card h2 {
+    height: 8vh;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    font-size: 5vh;
+}
+
+
+.card.right {
+    /* justify-content: flex-end; */  /*  Убираем  */
+    flex-direction: row-reverse; /*  Переворачиваем  порядок  элементов  */
+    margin-top: 5vh;
+}
+
+/*  Изменяем  flex-direction  для  card__content  */
+.card__content {
+    display: flex;
+    flex-direction: column; /*  Делаем flex-direction: column  */
+}
+
+ </style>
+
+<body>
+    <div class="page">
+        <div class="header-container">
+
+            <div class="menu">
+                <div class="logo">
+                    <li><a href="/"><img src="static/img/image.psd.jpg" alt="Логотип"></a></li>
+                </div>
+                <input type="checkbox" id="burger-checkbox" class="burger-checkbox">
+                <label for="burger-checkbox" class="burger"></label>
+                <ul class="menu-list">
+                    <li><a href="/" class="menu-item">Главная</a></li>
+                    <li><a href="/gamenews" class="menu-item">Популярные Игры</a></li>
+                    <li><a href="/novanews" class="menu-item">Новинки</a></li>
+                </ul>
+            </div>
+            <nav class="main-header">
+                <div class="mcontainer">
+                    <div class="navbar-wrape">
+                        <ul class="navbar-menus">
+                            <li><a href="#">О нас</a></li>
+                            <li><a href="/contact">Контакты</a></li>
+                            <li><a href="#">Адрес</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="line"></div>
+            <nav class="sub-header">
+                <div class="container">
+                    <div class="logo">
+                        <li><a href="/"><img src="static/img/image.psd.jpg" alt="Логотип" style="width: 17vw;
+                        margin-left: -1vw;"></a></li>
+                    </div>
+                    <div class="navbar-wrap">
+                        <ul class="navbar-menu">
+                            <li><a href="/gamenews">Популярные игры</a></li>
+                            <li><a href="/novanews">Новинки</a></li>
+                            <li><a href="https://vk.com/vskvdk">Группа Вконтакте</a></li>
+                            <li><a href="/login" class="menu-item">Личный кабинет</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        
+        <div class="wrapper">
+            <div class="content">
+                <div class="Glcontainer">
+                    <main class="news-container"> 
+                        {% for news_item in news %} 
+                            <div class="card {% if loop.index is even %}right{% else %}left{% endif %}"> 
+                                <div class="card__content">
+                                    <img src="{{ url_for('static', filename='covers/' + news_item[3]) }}" alt="Обложка новости">
+                                </div>
+                                <div class="card__content">
+                                    <h2>{{ news_item[1] }}</h2> 
+                                </div>
+                            </div> 
+                        {% endfor %}
+                    </main>
+                </div> 
+                <div class="podval">
+                    <div class="container">
+                        <div class="logos">
+                     <li><a href="index.html"><img src="static/img/image.psd.jpg" alt="Логотип" style="    width: 16vw;
+                         height: auto;
+                     "></a></li>
+                 </div>
+                 <div class="navbar-wrapes">
+                     <ul class="navbar-menues">
+                         <li><a href="indexGAME.html">Популярные игры</a></li>
+                         <li><a href="indexNEWS.html">Новинки</a></li>
+                         <li><a href="https://vk.com/vskvdk">Группа Вконтакте</a></li>
+                     </ul>
+                     <ul class="navbar-menueses">
+                         <li><a href="indexGAME.html">О нас</a></li>
+                         <li><a href="contact.html">Контакты</a></li>
+                         <li><a href="https://vk.com/vskvdk">Адрес</a></li>
+                     </ul>
+                 </div>
+                 <div class="navbar-wrapess">
+                     <ul class="navbar-menuesesss">
+                         <li>© 2023 GamerPc.ru</li>
+                     </ul>
+                     <ul class="navbar-menuesess">
+                         <li>Использование любых материалов сайта без согласования с администрацией запрещено</li>
+                     </ul>
+                 </div>
+                 </div>
+                </div>  
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

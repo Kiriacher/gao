@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game News</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/stylest.css') }}">
+    <style>
+        .gamenews-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Центрирование по горизонтали */
+            min-height: 100vh; /* Занимает всю высоту экрана */
+        }
+
+        .gamenews {
+            display: flex; /* Используем flexbox для gamenews */
+            margin: 0 auto; /* Центрирование по горизонтали */
+            justify-content: space-between; /* Распределяем элементы по краям */
+            align-items: flex-start; /* Выравниваем по верхнему краю */
+            margin-top: 20vh;
+            width: 60vw;
+            background-color: #1e1e1e;
+        }
+    </style>
+</head>
+<body>
+  <div class="gamenews-container">
+    {% extends 'base.html' %}
+    {% block content %}
+        <a href="{{ url_for('gamenews') }}" style="    
+        font-family: disket mono;
+        color: white;
+        font-size: 1.2vw;">  Back to News</a>
+        <div class="gamenews">
+            <div class="game-details">
+                <img src="{{ url_for('static', filename='covers/' + gamenews_item[3]) }}" alt="Обложка игры" style="width: 20vw; border-radius: 8px;"> 
+            </div>
+            <div class="sistem s">
+                <h1 style="    
+                text-align: center;
+                font-family: disket mono;
+                ">{{ gamenews_item[1] }}</h1>
+                <h3>Жанр: {{ gamenews_item[4] }}</h3>
+                <h3>Дата выхода: {{ gamenews_item[11] }}</h3>
+                <h3>Официальный сайт: <a href="{{ gamenews_item[12] }}">{{ gamenews_item[12] }}</a></h3>
+                <h3>Издатели: <a href="{{ gamenews_item[13] }}">{{ gamenews_item[13] }}</a></h3>
+                <h3>Платформы: {{ gamenews_item[14] }}</h3>
+                <div class="treb">
+                    <h2 style="
+                    margin-top: 3vh;
+                    font-family: disket mono;
+                    ">Минимальные требования</h2>
+                    <h3>Операционная система: {{ gamenews_item[5] }}</h3>
+                    <h3>Процессор: {{ gamenews_item[6] }}</h3>
+                    <h3>Видеокарта: {{ gamenews_item[7] }}</h3> 
+                    <h3>Оперативная память: {{ gamenews_item[8] }}</h3> 
+                    <h3>Место на диске: {{ gamenews_item[9] }}</h3> 
+                    <h3>DirectX: {{ gamenews_item[10] }}</h3> 
+                </div>
+                
+            </div>
+        </div>
+        <div class="textop"style="    
+        font-family: disket mono;
+        color: white;
+        border: solid;
+        border-color: aliceblue;
+        border-style: solid;
+        border-radius: 10px;
+        width: 60vw;
+        background-color: #1e1e1e;
+        margin: 0 auto;
+        width: 60vw;
+
+        ">
+          <h2 style="    
+          margin: 2vh;
+          font-size: 1vw;
+          text-align: justify;
+          ">{{ gamenews_item[2] }}</h2>
+        </div>
+    {% endblock %}
+   
+</div>
+
+  
+</body>
+</html>

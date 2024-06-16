@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить новость</title>
+</head>
+<body>
+    <h1>Добавить новость</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <label for="title">Заголовок:</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="content">Содержание:</label><br>
+        <textarea id="content" name="content"></textarea><br>
+        <!-- Поле для загрузки обложки новости -->
+        <label for="image_url">Обложка:</label><br>
+        <input type="file" id="image_url" name="image_url"><br>
+        <!-- Кнопка для отправки формы -->
+        <button type="submit">Добавить новость</button>
+    </form>
+    <a href="{{ url_for('admin_panel') }}">Назад к админ-панели</a>
+</body>
+</html>

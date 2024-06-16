@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+</head>
+
+<body>
+  
+    <div class="Glcontainer">
+
+        <div class="header-container">
+
+            <div class="menu">
+                <div class="logo">
+                    <li><a href="/"><img src="{{ url_for('static', filename='img/image.psd.jpg') }}" alt="Логотип"></a></li>
+                </div>
+                <input type="checkbox" id="burger-checkbox" class="burger-checkbox">
+                <label for="burger-checkbox" class="burger"></label>
+                <ul class="menu-list">
+                    <li><a href="/gamenews">Популярные игры</a></li>
+                    <li><a href="/novanews">Новинки</a></li>
+                    <li><a href="https://vk.com/vskvdk">Группа Вконтакте</a></li>
+                    <li><a href="/login" class="menu-item">Личный кабинет</a></li>
+                </ul>
+            </div>
+            
+            <nav class="main-header">
+                <div class="mcontainer">
+    
+                    <div class="navbar-wrape">
+                        
+                        <ul class="navbar-menus">
+                            <li><a href="#">О нас</a></li>
+                            <li><a href="#">Контакты</a></li>
+                            <li><a href="#">Адрес</a></li>
+                
+                        </ul>
+                    </div>
+    
+                </div>
+                
+                
+            </nav>
+    
+            <div class="line"></div>
+        
+            <nav class="sub-header">
+                <div class="container">
+                    <div class="logo">
+                        <li><a href="/"><img src="{{ url_for('static', filename='img/image.psd.jpg') }}" alt="Логотип"></a></li>
+                    </div>
+    
+                    <div class="navbar-wrap">
+    
+                         <ul class="navbar-menu">
+                            <li><a href="/gamenews">Популярные игры</a></li>
+                            <li><a href="/novanews">Новинки</a></li>
+                            <li><a href="https://vk.com/vskvdk">Группа Вконтакте</a></li>
+                            <li><a href="/login" class="menu-item">Личный кабинет</a></li>
+                        </ul>
+                       
+                    </div>
+    
+                </div>
+            
+            </nav>
+    
+        </div>
+    
+
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+    
+
+
+
+        <div class="podval">
+            
+            <div class="container">
+
+                <div class="logos">
+                    <li><a href="index.html"><img src="{{ url_for('static', filename='img/image.psd.jpg') }}" alt="Логотип"></a></li>
+                </div>
+
+                <div class="navbar-wrapes">
+
+                    <ul class="navbar-menues">
+                        <li><a href="indexGAME.html">Популярные игры</a></li>
+                        <li><a href="indexNEWS.html">Новинки</a></li>
+                        <li><a href="https://vk.com/vskvdk">Группа Вконтакте</a></li>
+                    </ul>
+
+                    <ul class="navbar-menueses">
+                        <li><a href="indexGAME.html">О нас</a></li>
+                        <li><a href="indexNEWS.html">Контакты</a></li>
+                        <li><a href="https://vk.com/vskvdk">Адрес</a></li>
+                    </ul>
+
+                </div>
+
+                <div class="navbar-wrapess">
+
+
+                    <ul class="navbar-menuesesss">
+                        <li>© 2023 GamerPc.ru</li>
+                       
+                    </ul>
+
+                    <ul class="navbar-menuesess">
+                        <li>Использование любых материалов сайта без согласования с администрацией запрещено</li>
+                    </ul>
+                       
+                </div>
+    
+            </div>
+            
+           
+
+
+        </div>
+        
+    </div>
+
+    
+
+</body>
+</html>

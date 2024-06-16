@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет</title>
+    <link rel="stylesheet" href="static/styles/dashboard.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            text-align: left;
+            /* Изменение выравнивания на левое */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto; /* Добавляем автоматические отступы по горизонтали */
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Добавляем выравнивание по центру */
+        }
+
+        .avatar-container {
+            float: left;
+            /* Расположение слева */
+            margin-right: 20px;
+        }
+
+        .user-info {
+            float: left;
+            /* Расположение слева */
+            position: fixed;
+            top: 70px;
+            left: 315px;
+        }
+
+        .back-button {
+            background-color: #4CAF50;
+            /* Цвет кнопки */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+            /* Отступ сверху */
+            text-decoration: none;
+            /* Убираем подчеркивание */
+            position: absolute;
+            top: 325px;
+            left: 400px;
+        }
+
+        .back-button:hover {
+            background-color: #45a049;
+        }
+
+        .Logout-button {
+            background-color: #4CAF50;
+            /* Цвет кнопки */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+            /* Отступ сверху */
+            text-decoration: none;
+            /* Убираем подчеркивание */
+            position: absolute;
+            top: 325px;
+            left: 310px;
+        }
+
+        .Logout-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Скрытие стандартной кнопки "Обзор" */
+        .Explore-File {
+            display: none;
+        }
+
+        .Explore-File:hover {
+            background-color: #45a049;
+        }
+
+        /* Стилизация метки */
+        .choose-button {
+            background-color: #4CAF50;
+            /* Цвет кнопки */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+            /* Отступ сверху */
+        }
+
+        .choose-button:hover {
+            background-color: #45a049;
+            /* Темно-зеленый при наведении */
+        }
+
+        .upload-button {
+            background-color: #4CAF50;
+            /* Цвет кнопки */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+            /* Отступ сверху */
+        }
+
+        .upload-button:hover {
+            background-color: #45a049;
+            /* Темно-зеленый при наведении */
+        }
+
+        .admin-button {
+            background-color: #4CAF50;
+            /* Цвет кнопки */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+            text-decoration: none;
+            /* Отступ сверху */
+            position: absolute;
+            top: 325px;
+            left: 530px;
+        }
+
+        .admin-button:hover {
+            background-color: #45a049;
+            /* Темно-зеленый при наведении */
+        }
+    </style>
+</head>
+
+<body>
+        
+    </div>
+    <h1 style= "color: white">Личный кабинет</h1>
+    <div class="avatar-container">
+        {% if current_user.avatar %}
+        <img src="{{ url_for('static', filename='avatars/' + current_user.avatar) }}" alt="Аватарка"
+            style="max-width: 300px;">
+        {% else %}
+        <p>Аватар не загружен</p>
+        {% endif %}
+    </div>
+    <div class="user-info" style= "color: white">
+        <p>Добро пожаловать, {{ current_user.username }}! Твой ID: {{ current_user.id }}</p>
+        <p>Привет, {{ current_user.username }}!</p>
+    </div>
+    {% if current_user.is_admin %}
+    <a href="{{ url_for('admin_panel') }}" class="admin-button">Админ-панель</a>
+    {% endif %}
+    <form action="/upload_avatar" method="POST" enctype="multipart/form-data"
+        style="position: absolute;top: 210px;left: 310px;">
+        <!-- Невидимая кнопка для загрузки файла -->
+        <input type="file" name="avatar" accept="image/*" class="Explore-File" id="avatar-upload"
+            style="display: none;">
+        <!-- Стилизованная метка -->
+        <label for="avatar-upload" class="choose-button">Выбрать файл</label>
+        <button type="submit" class="upload-button">Загрузить новый аватар</button>
+        <a href="/feedback" class="admin-button" style="background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-top: 20px;
+        text-decoration: none;
+        position: absolute;
+        top: 20vh;
+    left: 0vw;">Служба поддержки</a>
+    </form>
+    <a href="/" class="back-button">На главную</a>
+    <a href="/logout" class="Logout-button">Выйти</a>
+</body>
+
+</html>

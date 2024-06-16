@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova News</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/stylest.css') }}">
+    <style>
+        .novanews-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Центрирование по горизонтали */
+            min-height: 100vh; /* Занимает всю высоту экрана */
+        }
+
+        .novanews {
+            display: flex; /* Используем flexbox для gamenews */
+            margin: 0 auto; /* Центрирование по горизонтали */
+            justify-content: space-between; /* Распределяем элементы по краям */
+            align-items: flex-start; /* Выравниваем по верхнему краю */
+            margin-top: 20vh;
+            width: 60vw;
+            background-color: #1e1e1e;
+        }
+    </style>
+</head>
+<body>
+  <div class="novanews-container">
+    {% extends 'base.html' %}
+    {% block content %}
+        <a href="{{ url_for('novanews') }}" style="    
+        font-family: disket mono;
+        color: white;
+        font-size: 1.2vw;">  Back to News</a>
+        <div class="novanews">
+            <div class="nova-details">
+                <img style="    width: 100%; border-radius: 8px;" src="{{ url_for('static', filename='covers/' + novanews_item[3]) }}" alt="Обложка игры"> 
+            </div>
+        </div>
+        <div class="textop"style="    
+        font-family: disket mono;
+        color: white;
+        border: solid;
+        border-color: aliceblue;
+        border-style: solid;
+        border-radius: 10px;
+        width: 60vw;
+        background-color: #1e1e1e;
+        margin: 0 auto;
+        width: 60vw;
+
+        ">
+          <h2 style="    
+          margin: 2vh;
+          font-size: 1vw;
+          text-align: justify;
+          ">{{ novanews_item[2] }}</h2>
+        </div>
+    {% endblock %}
+</div>
+  
+</body>
+</html>

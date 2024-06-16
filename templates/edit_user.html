@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактировать пользователя</title>
+</head>
+<body>
+    <h1>Редактировать пользователя</h1>
+    <form method="POST">
+        <label for="username">Имя пользователя:</label><br>
+        <input type="text" id="username" name="username" value="{{ user[1] }}"><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" value="{{ user[3] }}"><br>
+        <label for="password">Новый пароль:</label><br>
+        <input type="password" id="password" name="password"><br>
+        <input type="checkbox" id="is_admin" name="is_admin" {% if user[5] %}checked{% endif %}>
+        <label for="is_admin">Администратор</label><br>
+        <button type="submit">Сохранить</button>
+    </form>
+    <a href="{{ url_for('admin_panel') }}">Назад к списку пользователей</a>
+</body>
+</html>

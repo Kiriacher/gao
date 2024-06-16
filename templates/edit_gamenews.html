@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактировать игру</title>
+</head>
+<body>
+    <h1>Редактировать игру</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <label for="title">Заголовок:</label><br>
+        <input type="text" id="title" name="title" value="{{ gamenews[1] }}"><br>
+        <label for="content">Содержание:</label><br>
+        <textarea id="content" name="content">{{ gamenews[2] }}</textarea><br>
+        
+        <!-- Поле для загрузки новой обложки новости -->
+        <label for="image_url">Новая обложка игры:</label><br>
+        <input type="file" id="image_url" name="image_url"><br>
+        
+        <button type="submit">Сохранить</button>
+    </form>
+    <a href="{{ url_for('admin_panel') }}">Назад к списку игр</a>
+</body>
+</html>

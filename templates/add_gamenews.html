@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить игру</title>
+</head>
+<body>
+    <h1>Добавить игру</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <label for="title">Заголовок:</label><br>
+        <input type="text" id="title" name="title"><br>
+
+        <label for="release">Дата выхода:</label><br>
+        <textarea id="release" name="release"></textarea><br>
+
+        <label for="oficials">Официальный сайт:</label><br>
+        <textarea id="oficials" name="oficials"></textarea><br>
+
+        <label for="creators">Издатели:</label><br>
+        <textarea id="creators" name="creators"></textarea><br>
+
+        <label for="platform">Платформы:</label><br>
+        <textarea id="platform" name="platform"></textarea><br>
+
+        <label for="ganre">Жанр:</label>
+        <select id="ganre" name="ganre">
+            <option value="Экшен">Экшен</option>
+            <option value="Приключения">Приключения</option>
+            <option value="Ролевая игра (RPG)">Ролевая игра (RPG)</option>
+            <option value="Шутер от первого лица (FPS)">Шутер от первого лица (FPS)</option>
+            <option value="Симулятор">Симулятор</option>
+            <option value="Стратегия">Стратегия</option>
+            <option value="Спортивная">Спортивная</option>
+            <option value="Гонки">Гонки</option>
+            <option value="Головоломка">Головоломка</option>
+            <option value="Хоррор">Хоррор</option>
+            <option value="Выживание">Выживание</option>
+            <option value="Открытый мир">Открытый мир</option>
+            <option value="Платформер">Платформер</option>
+            <option value="Файтинг">Файтинг</option>
+            <option value="Массово многопользовательская онлайн игра (MMO)">Массово многопользовательская онлайн игра (MMO)</option>
+            <option value="Образовательная">Образовательная</option>
+            <option value="Казуальная">Казуальная</option>
+            <option value="Королевская битва (Battle Royale)">Королевская битва (Battle Royale)</option>
+            <option value="Музыка/Ритм">Музыка/Ритм</option>
+            <option value="Стелс">Стелс</option>            
+        </select>
+
+        <label for="opsi">Операционная система:</label>
+        <select id="opsi" name="opsi">
+        <option value="Windows">Windows</option>
+        <option value="MacOS">MacOS</option>
+        <option value="Linux">Linux</option>
+        </select>
+
+        <label for="processor">Процессор</label>
+        <select id="processor" name="processor">
+            <option value="Intel Core i3">Intel Core i3</option>
+            <option value="Intel Core i5">Intel Core i5</option>
+            <option value="Intel Core i7">Intel Core i7</option>
+            <option value="Intel Core i9">Intel Core i9</option>
+            <option value="AMD Ryzen 3">AMD Ryzen 3</option>
+            <option value="AMD Ryzen 5">AMD Ryzen 5</option>
+            <option value="AMD Ryzen 7">AMD Ryzen 7</option>
+            <option value="AMD Ryzen 9">AMD Ryzen 9</option>
+            <option value="Intel Xeon">Intel Xeon</option>
+            <option value="AMD Threadripper">AMD Threadripper</option>
+            <option value="Qualcomm Snapdragon">Qualcomm Snapdragon</option>
+            <option value="Apple M1">Apple M1</option>
+        </select>
+
+        <label for="videocard">Видеокарта</label>
+        <select id="videocard" name="videocard">videocard
+        <option value="NVIDIA GeForce GTX 1050">NVIDIA GeForce GTX 1050</option>
+        <option value="NVIDIA GeForce GTX 1060">NVIDIA GeForce GTX 1060</option>
+        <option value="NVIDIA GeForce GTX 1070">NVIDIA GeForce GTX 1070</option>
+        <option value="NVIDIA GeForce GTX 1080">NVIDIA GeForce GTX 1080</option>
+        <option value="NVIDIA GeForce RTX 2060">NVIDIA GeForce RTX 2060</option>
+        <option value="NVIDIA GeForce RTX 2070">NVIDIA GeForce RTX 2070</option>
+        <option value="NVIDIA GeForce RTX 2080">NVIDIA GeForce RTX 2080</option>
+        <option value="AMD Radeon RX 570">AMD Radeon RX 570</option>
+        <option value="AMD Radeon RX 580">AMD Radeon RX 580</option>
+        <option value="AMD Radeon RX 590">AMD Radeon RX 590</option>
+        <option value="AMD Radeon RX Vega 56">AMD Radeon RX Vega 56</option>
+        <option value="AMD Radeon RX Vega 64">AMD Radeon RX Vega 64</option>
+        <option value="AMD Radeon VII">AMD Radeon VII</option>
+        </select>
+
+        <label for="operativ">Оперативная память</label>
+        <select id="operativ" name="operativ">
+            <option value="1 GB ">1 GB</option>
+            <option value="2 GB ">2 GB</option>
+            <option value="3 GB ">3 GB</option>
+            <option value="4 GB ">4 GB</option>
+            <option value="6 GB ">6 GB</option>
+            <option value="8 GB ">8 GB</option>
+        </select>
+        
+        <label for="place_disk">Место на диске</label>
+        <input type="text" id="place_disk" name="place_disk">
+
+        <label for="directx">DirectX:</label>
+        <select id="directx" name="directx">
+        <option value="directx 9.0">directx 9.0</option>
+        <option value="directx 11.0">directx 11.0</option>
+        <option value="directx 12.0">directx 12.0</option>
+        </select>
+
+        <label for="content">Содержание:</label><br>
+        <textarea id="content" name="content"></textarea><br>
+        <!-- Поле для загрузки обложки новости -->
+        <label for="image_url">Обложка:</label><br>
+        <input type="file" id="image_url" name="image_url"><br>
+        <!-- Кнопка для отправки формы -->
+        <button type="submit">Добавить игру</button>
+    </form>
+    <a href="{{ url_for('admin_panel') }}">Назад к админ-панели</a>
+</body>
+</html>

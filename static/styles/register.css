@@ -1,0 +1,8 @@
+body {
+    width: 100%;
+    background: url(https://images.hdqwalls.com/wallpapers/noir-5k-2t.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
